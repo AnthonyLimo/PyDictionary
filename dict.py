@@ -7,6 +7,10 @@ def translate_word(define_word):
     define_word = define_word.lower()
     if define_word in data:
         return data[define_word]
+    elif define_word.title() in data:
+        return data[define_word.title()]
+    elif define_word.upper() in data:
+        return data[define_word.upper()]
     elif len(get_close_matches(define_word, data.keys())) > 0:
         yn = input("Did you mean %s instead? Enter Y for yes and N for no" % get_close_matches(define_word, data.keys())[0])
         if yn == "Y":
